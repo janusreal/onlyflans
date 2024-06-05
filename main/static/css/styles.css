@@ -26,14 +26,22 @@ body {
 
 /* animacion */
 
-#img-emergente{
-  width: 100%;
-  animation-name:  emergente;
-  animation-duration: 1s;
+#cont-img-emer {
   position: relative;
+  height: 445px; /* Ajusta la altura según tus necesidades */
+  overflow: hidden; /* Esto asegurará que la imagen emergente no sea visible hasta que aparezca */
 }
 
-@keyframes emergente{
-  0% {left: 0; top: 200px};
-  100% {left: 0; top: 0 };
+/* Estilo para la imagen emergente */
+#img-emergente {
+  width: 100%;
+  animation-name: emergente;
+  animation-duration: .5s;
+  position: absolute; /* Cambia a absoluto para posicionar con respecto al contenedor */
+  bottom: 0; /* Ajusta según la altura de la imagen para que quede oculta inicialmente */
+}
+
+@keyframes emergente {
+  0% { bottom: -445px; } /* Ajusta según la altura de la imagen */
+  100% { bottom: 0; }
 }
