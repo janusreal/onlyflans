@@ -18,9 +18,19 @@
                 <h3>Estamos por lanzar un nuevo flan!!</h3>
                 <p>Este sábado 8 de junio, no te lo pierdas!</p>
                 <img src="{% static 'flan-sorpresa.jpg' %}" alt="" style="width: 60%">
-
+                
             </div>            
         </div>
+        <div class="row py-3 bg-warning bg-opacity-10 rounded-3">
+            <div class="col-6 ps-5 pt-2">
+                <h4>Regístrate y sé de los primeros en enterarte</h4>
+                <p>Además el registro te da derecho a una invitación gratuita para una degustación de nuestros flanes.</p>
+            </div>
+            <div class="col-6">
+                {% include 'parts/formulario.html' %}
+            </div>
+        </div>
+       
         
 
 
