@@ -1,4 +1,33 @@
 {% extends 'base.html' %}
-    {% block 'contenido' %}
-    Acerca de Onlyflans
+{% load static %}
+    {% block contenido %}
+    
+    <div class="container">
+        <h3 class="text-center text-secondary my-4">{{ titulo }}</h3>
+        <div class="row">
+            <div class="col-6 d-flex align-items-center">
+                <div>
+                    <div class="mb-4"><h3>Desde 1963, como tontos para el Flan (antes nos llamábamos <span><img src="{% static 'FLANBOY.png' %}"></span>, pero nos demandaron y tuvimos que cambiar de nombre)</strong></h3></div>
+                    <p>Somos amantes del flan. Nos dedicamos a crear recetas deliciosas e innovadoras y a ofrecer nuestros productos al público.</p>
+                    <p>Ven y conoce el mundo de los flanes. Conoce alguna de nuestras recetas y disfruta de otras preparaciones secretas y tentadoras.   
+                    
+                </div>
+                </p>
+            </div>
+            <div class="col-6">
+                <img src="{% static 'fondo-about-of.png' %}" alt="Flanes deliciosos">
+            </div>
+
+
+
+
+        </div>
+        
+
+    </div>
+
+
+
+
+
     {% endblock %}

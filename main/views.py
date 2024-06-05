@@ -8,7 +8,8 @@ from main.flanes import flanes
 def index(req):
 
     context = {
-    'titulo':'Portal Onlyflans',
+    'titulo':'Lista de productos',
+    'epigrafe': 'Portal de OnlyFlans',
     'esAdmin': True,
     'nombre': 'Alejandro Martínez',
     'flanes': flanes
@@ -16,7 +17,15 @@ def index(req):
     return render(req, "index.html", context )
 
 def about(req):
-    return render(req, "about.html", {} )
+    context = {
+        'titulo':'Acerca de nosotros'
+    }
+    return render(req, "about.html", context )
 
 def welcome(req):
-    return render(req, "welcome.html", {} )
+    context = {
+        'titulo':'Bienvenido',
+        'esAdmin': True,
+        'nombre': 'Alejandro Martínez',
+    }
+    return render(req, "welcome.html", context )

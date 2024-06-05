@@ -1,4 +1,40 @@
 footer{
-    background-color: blue;
+    background-color: rgb(233, 250, 196);
     padding-top: 30px;
+    color: brown;
+}
+
+.crop-image {
+    width: 100%;
+    height: 8rem;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.flanboy{
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* animacion */
+
+#img-emergente{
+  width: 100%;
+  animation-name:  emergente;
+  animation-duration: 4s;
+  position: relative;
+}
+
+@keyframes emergente{
+  0% (left: 0; top: 0px);
+  50% (left: 0; top: 100px);
+  100% (left: 0; top: 200px);
 }
