@@ -29,12 +29,11 @@ body {
 #img-emergente{
   width: 100%;
   animation-name:  emergente;
-  animation-duration: 4s;
+  animation-duration: 1s;
   position: relative;
 }
 
 @keyframes emergente{
-  0% {left: 0; top: 0px};
-  50% {left: 0; top: 100px};
-  100% {left: 0; top: 200px};
+  0% {left: 0; top: 200px};
+  100% {left: 0; top: 0 };
 }

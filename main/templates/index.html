@@ -5,10 +5,10 @@
 
     <div class="container">
       <h3 class="text-center text-secondary my-4">{{ titulo}}<br><span style="font-size: 0.95em">{{ epigrafe}}</span></h3>
-        <div class="row justify-content-between">
+        <div class="row justify-content-md-between justify-content-center">
 
             {% for flan in flanes %}
-            <div class="card p-0" style="width: 18rem;">
+            <div class="card p-0 my-2" style="width: 18rem">
                 <img src="{{ flan.img }}" class="card-img-top crop-image" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{ flan.titulo }}</h5>
