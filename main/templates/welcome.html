@@ -26,12 +26,28 @@
                 <h4>Regístrate y sé de los primeros en enterarte</h4>
                 <p>Además el registro te da derecho a una invitación gratuita para una degustación de nuestros flanes.</p>
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12" id="mi-seccion">
+
+                    {% for error in errores %}
+
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                          </div>
+
+                    {% endfor %}
+
                 {% include 'parts/formulario.html' %}
             </div>
         </div>
        
-        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                {% if flag %}
+                    // Desplazarse a la sección específica
+                    window.location.hash = 'mi-seccion';
+                {% endif %}
+            });
+        </script> 
 
 
     {% endblock %}

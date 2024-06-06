@@ -36,12 +36,13 @@ body {
 #img-emergente {
   width: 100%;
   animation-name: emergente;
-  animation-duration: .5s;
+  animation-duration: 1.5s;
   position: absolute; /* Cambia a absoluto para posicionar con respecto al contenedor */
   bottom: 0; /* Ajusta según la altura de la imagen para que quede oculta inicialmente */
 }
 
 @keyframes emergente {
   0% { bottom: -445px; } /* Ajusta según la altura de la imagen */
+  50% { bottom: - 100px }
   100% { bottom: 0; }
 }

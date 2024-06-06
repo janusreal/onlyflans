@@ -1,18 +1,19 @@
-<form action="#" method="post">
+<form action="/contact_form" method="post">
+  {% csrf_token %}
     <div class="form-outline" data-mdb-input-init>
         <label class="form-label" for="typeText">Nombre:</label>
-        <input type="text" id="typeText" name="nombre" class="form-control" />
+        <input type="text" id="typeText" name="customer_name" class="form-control" />
         
       </div>
       <div class="form-outline" data-mdb-input-init>
         <label class="form-label" for="typeEmail">Email:</label>
-        <input type="email" id="typeEmail" name="email" class="form-control" />
+        <input type="text" name="customer_email" class="form-control" />
         
       </div>
       <div class="form-outline" data-mdb-input-init>
         <label class="form-label" for="textAreaExample">Mensaje:</label>
-        <textarea class="form-control" id="textAreaExample" name="mensaje" rows="4"></textarea>
+        <textarea class="form-control" id="textAreaExample" name="message" rows="4"></textarea>
         
       </div>
-      <button type="submit" class="btn btn-secondary my-3" disabled>Enviar datos</button>
+      <input type="submit" class="btn btn-secondary my-3"  value="Enviar datos">
 </form>
