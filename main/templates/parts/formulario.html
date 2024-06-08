@@ -1,3 +1,11 @@
+{% for error in errores %}
+
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+{% endfor %}
+
 <form action="/contact_form" method="post">
   {% csrf_token %}
     <div class="form-outline" data-mdb-input-init>

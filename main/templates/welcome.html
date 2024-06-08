@@ -17,7 +17,7 @@
             <div class="col-md-5 col-sm-12 py-4 text-center">
                 <h3>Estamos por lanzar un nuevo flan!!</h3>
                 <p>Este sábado 8 de junio, no te lo pierdas!</p>
-                <img src="{% static 'flan-sorpresa.jpg' %}" alt="" style="max-width: 15rem ;" class="">
+                <img src="{% static 'flan-sorpresa.jpg' %}" alt="" style="max-width: 15rem; border-radius: 200px;" class="">
                 
             </div>            
         </div>
@@ -28,26 +28,23 @@
             </div>
             <div class="col-md-6 col-sm-12" id="mi-seccion">
 
-                    {% for error in errores %}
+                <!-- espacio para validacion normal -->
+                 <!-- end -->
 
-                        <div class="alert alert-danger" role="alert">
-                            {{ error }}
-                          </div>
+               <!--{% include 'parts/formulario.html' %}-->
 
-                    {% endfor %}
+               <form id="form-persona" action="/welcome/" method="post">
+                {% csrf_token %}
+                {{form}}
+                <button type="submit" class="btn btn-primary">Agregar</button>
+              </form>
 
-                {% include 'parts/formulario.html' %}
+
+
             </div>
         </div>
        
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                {% if flag %}
-                    // Desplazarse a la sección específica
-                    window.location.hash = 'mi-seccion';
-                {% endif %}
-            });
-        </script> 
+        
 
 
     {% endblock %}
