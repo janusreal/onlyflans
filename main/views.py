@@ -2,20 +2,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from main.flanes import flanes
 from main.forms import ContactForm
-from main.models import Contacto
+from main.models import Contacto, Flan
 
 #create views
 
-def index(req):
 
-    context = {
-    'titulo':'Lista de productos',
-    'epigrafe': 'Portal de OnlyFlans',
-    'esAdmin': True,
-    'nombre': 'Alejandro Martínez',
-    'flanes': flanes
-    }
-    return render(req, "index.html", context )
+
 
 def about(req):
     context = {
@@ -36,12 +28,12 @@ def welcome(req):
 '''
 
 #welcome vendría a ser para crear un nuevo contacto
-def welcome(req):
+def contact(req):
     if req.method == 'GET':
         #se renderiza la página
         form = ContactForm()
         context = {'form': form }
-        return render(req, 'welcome.html', context)
+        return render(req, 'contact.html', context)
     else:
         #validamos el formulario
         
@@ -57,7 +49,7 @@ def welcome(req):
             })'''
             return redirect('/exito')
         context = {'form': form }
-        return render(req,'welcome.html',context)
+        return render(req,'contact.html',context)
 
 def exito(req):
     return render(req, "exito.html")
@@ -86,7 +78,7 @@ def contact_form(req):
             'errores': errores,
             'flag': True
             }
-        return render(req, 'welcome.html', context)    
+        return render(req, 'contact.html', context)    
     
     return redirect('/exito')
  
@@ -97,3 +89,11 @@ def contact_form(req):
     
     # si len(errores) == 0: redirijo a pagina de exito
     # si len(errores) > 0: vuelvo a cargar 'welcome.html', pero ahora mostrando los eorrores 
+
+def welcome(req):
+    all_flanes = Flan.objects.filter(is_private=True)
+    return render(req, 'welcome.html', {'all_flanes': all_flanes})
+
+def index(req):
+    all_flanes = Flan.objects.filter(is_private=False)
+    return render(req, 'index.html', {'all_flanes': all_flanes})

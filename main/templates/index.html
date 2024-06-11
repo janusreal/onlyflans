@@ -4,23 +4,21 @@
     {% block contenido %}
 
     <div class="container">
-      <h3 class="text-center text-secondary my-4">{{ titulo}}<br><span style="font-size: 0.95em">{{ epigrafe}}</span></h3>
+      <h3 class="text-center text-secondary my-4">Listado de Flanes Libres<br><span style="font-size: 0.95em">{{ epigrafe}}</span></h3>
         <div class="row justify-content-md-between justify-content-center">
 
-            {% for flan in flanes %}
+            {% for flan in all_flanes %}
             <div class="card p-0 my-2" style="width: 18rem">
-                <img src="{{ flan.img }}" class="card-img-top crop-image" alt="...">
+                <img src="{{ flan.image_url }}" class="card-img-top crop-image" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">{{ flan.titulo }}</h5>
+                  <h5 class="card-title">{{ flan.name }}</h5>
                   <p class="card-text">
-                    <span>Ingredientes:</span>
-                    <ul>
-                        {% for ingrediente in flan.ingredientes %}
-                        <li>{{ ingrediente }}</li>
-                        {% endfor %}
-                    </ul>
+                    {{ flan.description}}
+                    
                   </p>
-                  <a href="{{ flan.enlace }}" target="_blank" class="btn btn-secondary">Ver en la web</a>
+                </div>
+                <div class="card-footer">
+                  $ {{ flan.precio}}
                 </div>
               </div>
               {% endfor %}
@@ -31,3 +29,4 @@
 
     </div>
     {% endblock %}
+

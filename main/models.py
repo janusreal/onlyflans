@@ -7,11 +7,14 @@ class Contacto(models.Model):
     nombre = models.CharField(max_length=55)
     email = models.CharField(max_length=50)
     mensaje = models.CharField(max_length=64)
+    def __str__(self):
+        return self.nombre
 
 class Flan(models.Model):
     flan_uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(max_length=64)
     description = models.TextField(max_length=400, default="")  # Añadir un valor predeterminado
+    precio = models.IntegerField(max_length=20, default=1000)
     image_url = models.URLField(max_length=200)
     slug = models.SlugField(max_length=50, unique=True)
     is_private = models.BooleanField(default=False)
