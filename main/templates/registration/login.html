@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<div class="container">
+    <h3 class="text-center text-secondary my-4">Login</h3>
+
+    <div class="row py-3 bg-warning bg-opacity-10 rounded-3">
+        <div class="col-md-6 col-sm-12 ps-5 pt-2">
+            {% for error in errores %}
+
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+
+            {% endfor %}
+
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-outline d-flex flex-column mb-3" data-mdb-input-init>
+                    <label class="form-label" for="typeText">Username:</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3 d-flex flex-column">
+                    <label for="exampleInputPassword1"
+                        class="form-label">Password</label>
+                        {{ form.password }}
+                </div>
+
+                <input type="submit" class="btn btn-secondary my-3"
+                    value="Enviar datos">
+                    
+            </form>
+
+        </div>
+    </div>
+</div>
+        {% endblock %}

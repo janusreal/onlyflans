@@ -1,0 +1,21 @@
+{% for error in errores %}
+
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+{% endfor %}
+
+<form action="/contact_form" method="post">
+  {% csrf_token %}
+    <div class="form-outline" data-mdb-input-init>
+        <label class="form-label" for="typeText">Username:</label>
+        <input type="text" id="typeText" name="username" class="form-control" />    
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password_1" id="exampleInputPassword1">
+      </div>
+
+      <input type="submit" class="btn btn-secondary my-3"  value="Enviar datos">
+</form>

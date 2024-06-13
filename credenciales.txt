@@ -1,0 +1,4 @@
+credenciales django/admin en onlyflans
+
+username: creador
+pwd: 6yqt991s

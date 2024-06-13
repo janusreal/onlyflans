@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<div class="container">
+    <h3 class="text-center text-secondary my-4">Página de Login</h3>
+
+    <div class="row py-3 bg-warning bg-opacity-10 rounded-3">
+        <div class="col-md-6 col-sm-12 ps-5 pt-2">
+            {% for error in errores %}
+
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+
+            {% endfor %}
+
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <div class="form-outline" data-mdb-input-init>
+                    <label class="form-label" for="typeText">Username:</label>
+                    <input type="text" id="typeText" name="username"
+                        class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1"
+                        class="form-label">Password</label>
+                    <input type="password" class="form-control"
+                        name="password_1" id="exampleInputPassword1">
+                </div>
+
+                <input type="submit" class="btn btn-secondary my-3"
+                    value="Enviar datos">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+        {% endblock %}
