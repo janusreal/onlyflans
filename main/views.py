@@ -4,6 +4,12 @@ from main.flanes import flanes
 from main.forms import ContactForm
 from main.models import Contacto, Flan
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.views import LoginView
+
+
+class LoginViewPropia(SuccessMessageMixin,LoginView):
+    success_message = "Has ingresado correctamente"
 
 #create views
 
