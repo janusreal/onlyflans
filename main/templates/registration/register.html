@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block contenido %}
+
+    <div class="container">
+        <h3 class="text-center text-secondary my-4">Formulario de registro</h3>
+
+        <div class="row py-3 bg-warning bg-opacity-10 rounded-3">
+            <div class="col-md-6 col-sm-12 ps-5 pt-2">
+                <h4>Crea una cuenta de usuario</h4>
+                <p>Así podrás conocer flanes premium, para clientes especiales como tú</p>
+                <form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    {% for error in errores %}
+
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+{% endfor %}
+
+
+    {{ form }}
+
+      <input type="submit" class="btn btn-secondary my-3"  value="Registrarme">
+            </div>
+
+        </div>
+       
+        
+
+
+    {% endblock %}

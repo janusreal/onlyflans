@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from main.flanes import flanes
-from main.forms import ContactForm
+from main.forms import ContactForm, RegisterForm
 from main.models import Contacto, Flan
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 class LoginViewPropia(SuccessMessageMixin,LoginView):
@@ -18,6 +20,27 @@ def about(req):
         'titulo':'Acerca de nosotros'
     }
     return render(req, "about.html", context )
+
+def register(req):
+    form = RegisterForm()
+    context = {'form': form}
+    
+    if req.method == 'GET':
+        return render(req, 'registration/register.html',context)
+    
+    form = RegisterForm(req.POST)
+    
+    if form.is_valid():
+        data = form.cleaned_data
+        if data['password1'] != data['password2']:
+            messages.warning(req, "Contraseñas no coinciden")
+            return redirect('/accounts/register/')
+        
+        User.objects.create_user(data['username'], data['email'], data['password1'])
+        messages.success(req, "El usuario ha sido creado con éxito")
+        
+    return(redirect('/'))
+
 
 '''
 def welcome(req):
@@ -95,6 +118,21 @@ def welcome(req):
     all_flanes = Flan.objects.all()
     return render(req, 'welcome.html', {'all_flanes': all_flanes})
 
+def detalleFlan(req,id):
+    id = int(id)  
+   
+    flan_encontrado = Flan.objects.get(id=id)
+    breadcrumbs = [
+        {'url': '/', 'name': 'Inicio'},
+        {'url': '/welcome/', 'name': 'Nuestros flanes'},
+        {'url': f'/productos/{id}/', 'name': flan_encontrado.name},
+    ]
+    context = {
+        'flan': flan_encontrado,
+        'breadcrumbs': breadcrumbs
+    }
+    return render(req, 'detalleflan.html', context)
+
 def index(req):
     all_flanes = Flan.objects.filter(is_private=False)
     return render(req, 'index.html', {'all_flanes': all_flanes})
@@ -135,6 +173,3 @@ def register_form(req):
 
 
 
-def register(req):
-    return render(req, 'register.html')  
-   

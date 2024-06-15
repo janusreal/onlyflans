@@ -8,7 +8,14 @@
 
             {% for flan in all_flanes %}
             <div class="card p-0 my-2" style="width: 18rem">
-                <img src="{{ flan.image_url }}" class="card-img-top crop-image" alt="...">
+              <a href="/productos/{{ flan.id }}">
+              {% if flan.is_private %}
+              <span class="img-insignia"><img src="{% static 'insignia.png ' %}" width="25" alt=""></span>
+              {% endif %}                
+              
+              <img src="{{ flan.image_url }}" class="card-img-top crop-image" alt="...">
+
+              </a>
                 <div class="card-body">
                   <h5 class="card-title">{{ flan.name }}</h5>
                   <p class="card-text">
