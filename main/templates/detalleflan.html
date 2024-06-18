@@ -1,49 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block css %}
-<style>
-    #bajada {
-        font-size: 2.2em;
-    }
-    .banner-interno{
-        background-image: url('{% static "banner.png" %}');
-        background-size: cover;
-        min-height: 350px;
-        width: 100%;
-        margin-bottom: 40px;
-    }
-</style>
-{% endblock %}
-
 {% block contenido %}
 
-<div class="row">
-    <div class="banner-interno d-flex align-items-center ps-5">
-        <div>
-            <h1>Tienda de Flanes</h1>
-            <p>{% include 'parts/breadcrumbs.html' %}</p>
+<div class="main2">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-6">
+                <img src="{{ flan.image_url }}" alt class="img-fluid">
+            </div>
+            <div class="col-6">
+                <h1>{{ flan.name }}</h1>
+                <p id="bajada">$ {{ flan.precio }}</p>
+                <p>{{ flan.description }}</p>
+            </div>
         </div>
-
     </div>
 </div>
-
-
-<div class="row">
-
-    <div class="col-6">
-        <img src="{{ flan.image_url }}" alt="" class="img-fluid">
-    </div>
-    <div class="col-6">
-        <h1>{{ flan.name }}</h1>
-        <p id="bajada">$ {{ flan.precio }}</p>
-        <p>{{ flan.description }}</p>
-    </div>
-</div>
-
 
 {% endblock %}
 
 {% block js %}
-    {{ block.super }}
+{{ block.super }}
 {% endblock %}
-

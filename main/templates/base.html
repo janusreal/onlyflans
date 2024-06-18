@@ -1,78 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a onlyflans</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bienvenido a onlyflans</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
 
- 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
 
-
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    {% block css %}
-<style>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        {% block css %}
+        <style>
     .img-insignia{
         position: absolute; 
         top: 5px; 
         right: 5px
     }
+
+    .main{
+        background-image: url('{% static "bg-main.png" %}');
+        background-size: cover;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .main-interno{
+        background-image: url('{% static "bg-main-interno.png" %}');
+        background-position: bottom 0;
+        width: 100%;
+        min-height: 200px;
+    }
+
+    /* animacion en banner index */
+
+    .animacion {
+        position: absolute;
+        bottom: 0; 
+        display: flex;
+        width: 200%; /* Ajusta según la cantidad de imágenes */
+        animation: desplazar 10s linear infinite;
+}
+
+.animacion img {
+    width: 50%; /* Ajusta según el número de imágenes */
+    height: 100%; /* Para que las imágenes llenen el contenedor */
+    opacity: 60%;
+}
+
+@keyframes desplazar {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Ajusta según el número de imágenes */
+    }
+}
+
+.main2{
+    background-image: url('{% static "bg-main2.png" %}');
+    background-size: cover;
+    width: 100%;
+    min-height: 697px ;
+    overflow: hidden;
+    position: relative;
+    padding-top: 12rem;
+}
+
+.main2 .container{
+padding: 30px 0;
+}
+
+.main3{
+background-image: url('{% static "top-main-3.png" %}');
+background-repeat: no-repeat;
+background-position: top;
+}
+
+
+.main2 h1, .main3 h1{
+
+  font-weight: bolder;
+  margin-bottom: 4rem !important;
+  color:darkolivegreen !important;
+
+}
+
+.main3 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+/* header */
+
+.banner-index{
+    position: relative;
+    height: 640px;
+    padding: 0;
+   } 
+
+   .container-logo{
+    width: 100%;
+    z-index: 1;
+    background-image: url('{% static "logo_onlyflans.png" %}'); 
+    padding-top: 208px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-size: 100%; 
+    min-height: 221px; 
+    background-repeat: no-repeat
+}
+
+.container-logo p, .banner-interno h1{
+    background-image: url('{% static "bg-opa45.png" %}');
+}
+
+.img-banner{
+    position: absolute; 
+    bottom: 0; 
+    right: inherit
+}
+
+#bajada {
+  font-size: 2.2em;
+}
+.banner-interno{
+  background-image: url('{% static "mujer-banner-interno.png" %}');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  min-height: 444px;
+  width: 100%;
+}
+
+{
+    background-image: url();
+}
+
+@media (min-width: 992px){
+
+    .container-logo{
+    width: 55%;
+   }
+
+   .container-logo p, .banner-interno h1{
+    background-image:none;
+}
+
+   .img-banner{
+    right: 10px
+   }
+   
+
+
+}
 </style>
-    {% endblock %}
-
-</head>
-<body>
-    <div class="container">
-
-        {% block header %}
-        {% include 'parts/header.html' %}
         {% endblock %}
- 
 
-        {% block nav %}
-        {% include 'parts/navbar.html' %}
-        {% endblock %}
+    </head>
+    <body>
+
+
+                {% block nav %}
+                    {% include 'parts/navbar.html' %}
+                {% endblock %}
+
+                {% block header %}
+                    {% if is_index %}
+                        {% include 'parts/header.html' %}
+                    {% else %}
+                        {% include 'parts/header2.html' %}
+                    {% endif %}
+                {% endblock %}
+
+
         {% if messages %}
         {% for message in messages %}
-        <div class="alert alert-{{message.tags}} alert-dismissible fade show fadeOut" role="alert">
+        <div
+            class="alert alert-{{message.tags}} alert-dismissible fade show fadeOut"
+            role="alert">
             <strong>Aviso:</strong> {{ message }}.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"></button>
         </div>
         {% endfor %}
-    {% endif %}
+        {% endif %}
         <div class="col">
             {% block contenido %}
 
             {% endblock %}
         </div>
-        
 
         {% block footer %}
         {% include 'parts/footer.html' %}
         {% endblock %}
 
-
-    </div>
-
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-  <script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+        <script>
     setTimeout(function(){
         $('.fade').fadeOut(1500);
         },3000);
     
   </script>
 
-</body>
+    </body>
 </html>

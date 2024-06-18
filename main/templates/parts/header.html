@@ -1,6 +1,24 @@
 {% load static %}
-<div style="background: rgb(220, 198, 198);" class="container py-3">
-    <div class="col-4 offset-4">
-        <img src="{% static 'logo_onlyflans.png' %}" alt="logo" class="img-fluid">
+
+<div class="main">
+<div class="animacion">
+    <img src="{% static 'banda-flanes.png' %}" alt>
+    <img src="{% static 'banda-flanes.png' %}" alt>
+</div>
+    <div class="container py-3 banner-index d-flex align-items-center">
+        <div class="container-logo">
+            <p>El flan (del francés flan) es un postre de origen francés​ elaborado con una natilla, teniendo como ingredientes principales yemas de
+                huevos, un poco de clara a veces, leche entera y azúcar que luego es refrigerado para obtener una textura cremosa y gelatinosa.</p>
+                </div>
+
+                <picture class="img-banner">
+                    <source srcset="{% static 'mujer-banner-index-m.png' %}" media="(max-width: 990px)" />
+                    <source srcset="{% static 'mujer-banner-index.png' %}"    />	
+                    <img src="{% static 'mujer-banner-index.png' %}"  />
+                </picture>
+
+        </div>
+
+        
     </div>
 </div>

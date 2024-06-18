@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
     {% block contenido %}
+  <div class="main2">
 
+  
     <div class="container">
-      <h3 class="text-center text-secondary my-4">Listado de Flanes Completo<br><span style="font-size: 0.95em">{{ epigrafe}}</span></h3>
+      <h1>Listado de Flanes Completo<br><span style="font-size: 0.95em">{{ epigrafe}}</span></h1>
         <div class="row justify-content-md-between justify-content-center">
 
             {% for flan in all_flanes %}
@@ -34,4 +36,5 @@
         
 
     </div>
+  </div>
     {% endblock %}

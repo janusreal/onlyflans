@@ -23,7 +23,7 @@ def about(req):
 
 def register(req):
     form = RegisterForm()
-    context = {'form': form}
+    context = {'form': form, 'titulo': 'Formulario de registro'}
     
     if req.method == 'GET':
         return render(req, 'registration/register.html',context)
@@ -59,7 +59,7 @@ def contact(req):
     if req.method == 'GET':
         #se renderiza la página
         form = ContactForm()
-        context = {'form': form }
+        context = {'form': form, 'titulo': 'Contacto con el cliente' }
         return render(req, 'contact.html', context)
     else:
         #validamos el formulario
@@ -116,7 +116,11 @@ def contact_form(req):
 @login_required
 def welcome(req):
     all_flanes = Flan.objects.all()
-    return render(req, 'welcome.html', {'all_flanes': all_flanes})
+    context = {
+        'all_flanes':all_flanes,
+        'titulo': 'Todos nuestros flanes'
+    }
+    return render(req, 'welcome.html', context)
 
 def detalleFlan(req,id):
     id = int(id)  
@@ -129,16 +133,20 @@ def detalleFlan(req,id):
     ]
     context = {
         'flan': flan_encontrado,
-        'breadcrumbs': breadcrumbs
+        'breadcrumbs': breadcrumbs,
+        'titulo': flan_encontrado.name
     }
     return render(req, 'detalleflan.html', context)
 
 def index(req):
     all_flanes = Flan.objects.filter(is_private=False)
-    return render(req, 'index.html', {'all_flanes': all_flanes})
+    context = {'all_flanes': all_flanes,
+               'is_index': True
+               }
+    return render(req, 'index.html', context)
 
 def login(req):
-    return render(req, 'login.html')  
+    return render(req, 'login.html', {'titulo': 'Ingresar a la Plataforma'})  
 
 def register_form(req):
     
@@ -165,7 +173,7 @@ def register_form(req):
             
     if len(errores) > 0:
         context = {
-            'errores': errores
+            'errores': errores,
             }
         return render(req, 'register.html', context)    
     

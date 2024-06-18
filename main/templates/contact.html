@@ -1,50 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
-    {% block contenido %}
+{% block contenido %}
+<div class="main2">
+<div class="container">
+    <h1 class="text-center text-secondary my-4">{{ titulo }}
+        {% if esAdmin %}
+        {{nombre}}
+        {% else %}
+        Cliente
+        {% endif %}</h1>
+    <div class="row">
 
-    <div class="container">
-        <h3 class="text-center text-secondary my-4">{{ titulo }}
-            {% if esAdmin %}
-                    {{nombre}}
-            {% else %}
-                    Cliente
-            {% endif %}</h3>
-        <div class="row">
-            
-            <div class="col-md-7 col-sm-12 d-flex justify-content-center"  id="cont-img-emer">
-                <img src="{% static 'hombre-asombrado.png' %}" style="max-width: 25rem"  id="img-emergente">
-            </div>
-            <div class="col-md-5 col-sm-12 py-4 text-center">
-                <h3>Estamos por lanzar un nuevo flan!!</h3>
-                <p>Este sábado 8 de junio, no te lo pierdas!</p>
-                <img src="{% static 'flan-sorpresa.jpg' %}" alt="" style="max-width: 15rem; border-radius: 200px;" class="">
-                
-            </div>            
+        <div class="col-md-7 col-sm-12 d-flex justify-content-center"
+            id="cont-img-emer">
+            <img src="{% static 'hombre-asombrado.png' %}"
+                style="max-width: 25rem" id="img-emergente">
         </div>
-        <div class="row py-3 bg-warning bg-opacity-10 rounded-3">
-            <div class="col-md-6 col-sm-12 ps-5 pt-2">
-                <h4>Regístrate y sé de los primeros en enterarte</h4>
-                <p>Además el registro te da derecho a una invitación gratuita para una degustación de nuestros flanes.</p>
-            </div>
-            <div class="col-md-6 col-sm-12" id="mi-seccion">
+        <div class="col-md-5 col-sm-12 py-4 text-center">
+            <h3>Estamos por lanzar un nuevo flan!!</h3>
+            <p>Este sábado 8 de junio, no te lo pierdas!</p>
+            <img src="{% static 'flan-sorpresa.jpg' %}" alt
+                style="max-width: 15rem; border-radius: 200px;" class>
 
-                <!-- espacio para validacion normal -->
-                 <!-- end -->
+        </div>
+    </div>
+    <div class="row py-3 bg-warning bg-opacity-10 rounded-3">
+        <div class="col-md-6 col-sm-12 ps-5 pt-2">
+            <h4>Regístrate y sé de los primeros en enterarte</h4>
+            <p>Además el registro te da derecho a una invitación gratuita para
+                una degustación de nuestros flanes.</p>
+        </div>
+        <div class="col-md-6 col-sm-12" id="mi-seccion">
 
-               <!--{% include 'parts/formulario.html' %}-->
+            <!-- espacio para validacion normal -->
+            <!-- end -->
 
-               <form id="form-persona" action="/contact/" method="post">
+            <form id="form-persona" action="/contact/" method="post">
                 {% csrf_token %}
                 {{form}}
                 <button type="submit" class="btn btn-primary">Agregar</button>
-              </form>
+            </form>
 
-
-
-            </div>
         </div>
-       
-        
-
-
+    </div>
+</div>
     {% endblock %}

@@ -1,32 +1,68 @@
 
 {% extends 'base.html' %}
 {% load static %}
-    {% block contenido %}
+{% block contenido %}
+<div class="main2">
+  <div class="container">
+    <h1 class="text-center text-secondary">FLANES DESTACADOS<br><span
+        style="font-size: 0.95em">{{ epigrafe}}</span></h1>
+    <div class="row justify-content-md-between justify-content-center">
 
-    <div class="container">
-      <h3 class="text-center text-secondary my-4">Listado de Flanes Libres<br><span style="font-size: 0.95em">{{ epigrafe}}</span></h3>
-        <div class="row justify-content-md-between justify-content-center">
+      {% for flan in all_flanes %}
+      <div class="card p-0 my-2" style="width: 18rem">
+        <img src="{{ flan.image_url }}" class="card-img-top crop-image"
+          alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ flan.name }}</h5>
+          <p class="card-text">
+            {{ flan.description}}
 
-            {% for flan in all_flanes %}
-            <div class="card p-0 my-2" style="width: 18rem">
-                <img src="{{ flan.image_url }}" class="card-img-top crop-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{ flan.name }}</h5>
-                  <p class="card-text">
-                    {{ flan.description}}
-                    
-                  </p>
-                </div>
-                <div class="card-footer">
-                  $ {{ flan.precio}}
-                </div>
-              </div>
-              {% endfor %}
-
-
+          </p>
         </div>
-        
+        <div class="card-footer">
+          $ {{ flan.precio}}
+        </div>
+      </div>
+      {% endfor %}
 
     </div>
-    {% endblock %}
 
+  </div>
+</div>
+<div class="main3">
+  <div class="container">
+    <h1 class="text-center text-secondary">TODO LO QUE QUERÍAS SABER DEL
+      FLAN<br><span style="font-size: 0.75em">y que nunca se te había ocurrido
+        preguntar</span></h1>
+    <div class="row justify-content-md-between justify-content-center">
+      <div class="col-sm-4 col-12">
+        <img
+          src="https://i.pinimg.com/564x/86/3a/01/863a016c41170e334356c05683e57dcc.jpg"
+          class="w-100">
+      </div>
+      <div class="col-sm-8 col-12 py-3 py-sm-0">
+        <h2>El Flan... un postre milenario</h2>
+        <p>El flan (del francés flan)​ es un postre de origen francés​ elaborado
+          con una natilla, teniendo como ingredientes principales yemas de
+          huevos, un poco de clara a veces, leche entera y azúcar que luego es
+          refrigerado para obtener una textura cremosa y gelatinosa.</p>
+        <h2>Origen</h2>
+        <p>Su origen se remonta a siglos antes de Cristo, y ya era elaborado con
+          huevo como ingrediente principal de la receta, por fenicios, griegos y
+          romanos, que entonces lo llamaban Tyropatina.</p>
+
+        <p>Durante la Edad Media se continuó consumiendo, sobre todo en
+            Cuaresma, cuando ciertos alimentos estaban prohibidos,​ y fue
+            entonces cuando comenzó a elaborarse con azúcar y caramelo, tal como
+            lo conocemos ahora.</p>
+          <p>Aunque fue a partir del siglo vii que empezó a popularizarse en
+            diferentes países, ya que en ese momento se le dio el nombre de
+            Flan.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    {% endblock %}
