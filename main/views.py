@@ -138,6 +138,8 @@ def detalleFlan(req,id):
     }
     return render(req, 'detalleflan.html', context)
 
+
+
 def index(req):
     all_flanes = Flan.objects.filter(is_private=False)
     context = {'all_flanes': all_flanes,
